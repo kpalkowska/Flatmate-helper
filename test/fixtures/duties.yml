@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyString
+  day: MyString
+  Flatmate: one
+
+two:
+  description: MyString
+  day: MyString
+  Flatmate: two
