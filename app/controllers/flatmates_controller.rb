@@ -11,6 +11,7 @@ class FlatmatesController < ApplicationController
   def create
     @flatmate = Flatmate.new(flatmate_params)
     if @flatmate.save
+      log_in @flatmate
       flash[:success] = "Welcome to the Flatmate Helper!"
       redirect_to @flatmate
     else
