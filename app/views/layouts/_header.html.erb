@@ -7,6 +7,7 @@
         <li><%= link_to "About",  about_path %></li>
         <% if logged_in? %>
 	  <li><%= link_to "Flatmates", flatmates_path %></li>
+    <li><%= link_to "Map", maps_path %></li> 
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               Account <b class="caret"></b>
@@ -14,6 +15,7 @@
             <ul class="dropdown-menu">
               <li><%= link_to "Profile", current_flatmate %></li>
               <li><%= link_to "Settings", edit_flatmate_path(current_flatmate) %></li>
+
               <li class="divider"></li>
               <li>
                 <%= link_to "Log out", logout_path, method: "delete" %>
