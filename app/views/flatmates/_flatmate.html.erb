@@ -1,0 +1,7 @@
+<li>
+  <%= link_to flatmate.firstname, flatmate %>
+  <% if current_flatmate.admin? && !current_flatmate?(flatmate) %>
+    | <%= link_to "delete", flatmate, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+  <% end %>
+</li>
