@@ -27,8 +27,8 @@ class FlatmatesController < ApplicationController
     @flatmate = Flatmate.new(flatmate_params)
     if @flatmate.save
       log_in @flatmate
-      flash[:success] = "Welcome to the Flatmate Helper!"
-      redirect_to @flatmate
+      flash[:success] = "Welcome to the Flatmate Helper!"      
+      redirect_to new_flat_url
     else
       render 'new'
     end
@@ -48,6 +48,20 @@ class FlatmatesController < ApplicationController
       end
   end
         
+#Before filters
+  def logged_in_flatmate
+     unless logged_in?
+	#store_location
+	flash[:danger] = "Please log in."
+	redirect_to login_url
+      end
+  end
+
+  def correct_flatmate
+	@flatmate = Flatmate.find(params[:id])
+	redirect_to(root_url) unless @flatmate == current_flatmate
+  end
+
   private
 
     def flatmate_params
@@ -55,19 +69,8 @@ class FlatmatesController < ApplicationController
                                    :password_confirmation)
     end
 
-#Before filters
-  def logged_in_flatmate
-     unless logged_in?
-	store_location
-	flash[:danger] = "Please log in."
-	redirect_to login_url
-      end
-   end
-
-   def correct_flatmate
-	@flatmate = Flatmate.find(params[:id])
-	redirect_to(root_irl) unless @flatmate == current_flatmate
-   end
-
-
+    def admin_flatmate
+      redirect_to(root_url) unless current_flatmate.admin?
+    end
 end
+
