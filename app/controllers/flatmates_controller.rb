@@ -5,8 +5,11 @@ class FlatmatesController < ApplicationController
    before_action :admin_flatmate, only: :destroy
 
   def index
-    @flatmates = Flatmate.all
- 	#@flatmates = Flatmate.paginate(:page =>params[:page], :per_page =>5)
+    @flatmates = Flatmate.where(Flat_id: current_flatmate.Flat_id)
+
+    #@flatmates = Flatmate.all
+    #@flatmates = Flatmate.paginate(:page =>params[:page], :per_page =>5)
+
   end
 
   def destroy
@@ -59,7 +62,7 @@ class FlatmatesController < ApplicationController
 
   def correct_flatmate
 	@flatmate = Flatmate.find(params[:id])
-	redirect_to(root_url) unless @flatmate == current_flatmate
+	redirect_to(root_url) unless @flatmate == current_flatmate || current_flatmate.admin?
   end
 
   private
@@ -73,4 +76,3 @@ class FlatmatesController < ApplicationController
       redirect_to(root_url) unless current_flatmate.admin?
     end
 end
-

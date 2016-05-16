@@ -4,7 +4,24 @@
     <section class="user_info">
       <h1>
   	<%= @flatmate.firstname %> <%= @flatmate.lastname %>
-      </h1>
+     </h1>
+     <p>
+	<strong>Phone: </strong>
+	<%= @flatmate.phone %>
+     </p>
+     <p>
+	<strong>Email: </strong>
+	<%= @flatmate.email %>
+     </p>
+     <p>
+	<strong>Charges: </strong>
+	<%= @flatmate.charges %>
+     </p>
+     <p>
+	<strong>Payed: </strong>
+	<%= @flatmate.is_payed %>
+     </p>
+
     </section>
   </aside>
 </div>
