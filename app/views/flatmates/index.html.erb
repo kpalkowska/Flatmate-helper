@@ -7,6 +7,10 @@
   <% @flatmates.each do |flatmate| %>
     <tr>      
       <td><%= link_to flatmate.firstname, flatmate %></td>
+<<<<<<< HEAD
+=======
+      |
+>>>>>>> origin/master
       <td><%= link_to 'Show', flatmate, class: 'btn btn-info' %></td>
        <% if current_flatmate.admin? %>
 	<td><%= link_to 'Edit', edit_flatmate_path(flatmate), class: 'btn btn-warning' %></td>
