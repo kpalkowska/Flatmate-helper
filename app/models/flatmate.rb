@@ -9,8 +9,11 @@ class Flatmate < ActiveRecord::Base
 		    uniqueness: { case_sensitive: false }
 	
   validates :phone, presence: true
+  validates :charges, required: false
+  validates :is_payed, required: false
   has_secure_password
-  validates :password, presence: true, length: { minimum: 8 }
+  validates :password, presence: true, length: { minimum: 8 }, on: :create
+  validates :password, length: { minimum: 8 }, on: :update, allow_blank: true 
 
   def Flatmate.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
