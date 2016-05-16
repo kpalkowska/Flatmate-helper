@@ -27,14 +27,22 @@ class FlatmatesController < ApplicationController
   end
 
   def create
+   if current_flatmate.admin?
     @flatmate = Flatmate.new(flatmate_params)
     if @flatmate.save
-      log_in @flatmate
-      flash[:success] = "Welcome to the Flatmate Helper!"      
-      redirect_to new_flat_url
+	if !logged_in?
+     	   log_in @flatmate
+           flash[:success] = "Welcome to the Flatmate Helper!"      
+           redirect_to new_flat_url
+	else
+	   
+	   @flatmate.update_attribute(:Flat_id, current_flatmate.Flat_id)
+	   redirect_to @flatmate
+	end
     else
       render 'new'
     end
+   end
   end
 
   def edit 
@@ -69,7 +77,7 @@ class FlatmatesController < ApplicationController
 
     def flatmate_params
       params.require(:flatmate).permit(:firstname, :lastname, :phone, :email, :password,
-                                   :password_confirmation)
+                                   :password_confirmation, :charges, :is_payed)
     end
 
     def admin_flatmate
