@@ -1,5 +1,5 @@
-<% provide(:title, 'All flatmates') %>
-<h1>All flatmates</h1>
+<% provide(:title, 'Wszyscy mieszkańcy') %>
+<h1>Wszyscy mieszkańcy</h1>
 
 <table>
 <tbody>
@@ -9,10 +9,10 @@
 
       <td><strong><%= flatmate.firstname %></strong></td>
       <td><strong><%= flatmate.lastname %></strong></td>
-      <td><%= link_to 'Show', flatmate, class: 'btn btn-info' %></td>
+      <td><%= link_to 'Zobacz', flatmate, class: 'btn btn-info' %></td>
        <% if current_flatmate.admin? %>
-		<td><%= link_to 'Edit', edit_flatmate_path(flatmate), class: 'btn btn-warning' %></td>
-		<td><%= link_to 'Destroy', flatmate, class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?'} %></td>
+		<td><%= link_to 'Edytuj', edit_flatmate_path(flatmate), class: 'btn btn-warning' %></td>
+		<td><%= link_to 'Usuń', flatmate, class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?'} %></td>
        <% end %>
     </tr>
   <% end %>

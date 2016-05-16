@@ -1,9 +1,9 @@
 
 <% if logged_in? %>
-  <h1> New flatmate </h1>
+  <h1> Nowy mieszkaniec </h1>
   <% provide(:title, 'New flatmate') %>
 <% else %>
-  <h1>Sign up</h1>
+  <h1> Załóż konto</h1>
   <% provide(:title, 'Sign up') %>
 <% end %>
 
@@ -12,25 +12,25 @@
     <%= form_for(@flatmate) do |f| %>
       <%= render 'shared/error_messages' %>
 
-      <%= f.label :firstname %>
+      <%= f.label :imię %>
       <%= f.text_field :firstname, class: 'form-control' %>
 
-      <%= f.label :lastname %>
+      <%= f.label :nazwisko %>
       <%= f.text_field :lastname, class: 'form-control' %>
 
-      <%= f.label :phone %>
+      <%= f.label :telefon %>
       <%= f.text_field :phone, class: 'form-control' %>
 
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
 
-      <%= f.label :password %>
+      <%= f.label :hasło %>
       <%= f.password_field :password, class: 'form-control' %>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.label :password_confirmation, "Potwierdź hasło" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-      <%= f.submit "Create account", class: "btn btn-primary" %>
+      <%= f.submit "Stwórz konto", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>

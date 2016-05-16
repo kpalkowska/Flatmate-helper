@@ -4,36 +4,36 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home",   root_path %></li>
-        <li><%= link_to "About",  about_path %></li>
+        <li><%= link_to "O aplikacji",  about_path %></li>
         <% if logged_in? %>
 	<li class = "dropdown"> 
 	 <a hfer="#" class="dropdown-toggle" data-toggle="dropdown">
-	  	Flatmates <b class ="caret"></b>
+	  	Mieszkańcy <b class ="caret"></b>
 	  </a>
           <ul class="dropdown-menu">
-		<li><%= link_to "All", flatmates_path %></li>
+		<li><%= link_to "Wszyscy", flatmates_path %></li>
 	        <% if current_flatmate.admin? %>
-		  <li><%= link_to "Add", new_flatmate_path %></li>
+		  <li><%= link_to "Dodaj nowego", new_flatmate_path %></li>
 	      	<% end %>
 	  </ul>
 	</li>
-    <li><%= link_to "Map", maps_path %></li> 
+    <li><%= link_to "Mapa", maps_path %></li> 
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Account <b class="caret"></b>
+              Konto <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><%= link_to "Profile", current_flatmate %></li>
-              <li><%= link_to "Settings", edit_flatmate_path(current_flatmate) %></li>
+              <li><%= link_to "Profil", current_flatmate %></li>
+              <li><%= link_to "Narzędzia", edit_flatmate_path(current_flatmate) %></li>
 
               <li class="divider"></li>
               <li>
-                <%= link_to "Log out", logout_path, method: "delete" %>
+                <%= link_to "Wyloguj", logout_path, method: "delete" %>
               </li>
             </ul>
           </li>
         <% else %>
-          <li><%= link_to "Log in", login_path %></li>
+          <li><%= link_to "Zaloguj", login_path %></li>
         <% end %>
       </ul>
     </nav>
