@@ -6,7 +6,11 @@ class SessionsController < ApplicationController
     flatmate = Flatmate.find_by(email: params[:session][:email].downcase)
     if flatmate && flatmate.authenticate(params[:session][:password])
       log_in flatmate
-      redirect_to flatmate
+      if flatmate.Flat_id.nil?
+        redirect_to new_flat_url
+      else
+        redirect_to flatmate
+      end
     else
       flash.now[:danger] = 'Invalid email/password combination'
       render 'new'
@@ -18,3 +22,4 @@ class SessionsController < ApplicationController
     redirect_to root_url
   end
 end
+

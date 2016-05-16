@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160515223254) do
+ActiveRecord::Schema.define(version: 20160516053704) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "category"
@@ -39,8 +39,9 @@ ActiveRecord::Schema.define(version: 20160515223254) do
     t.decimal  "charges"
     t.boolean  "is_payed"
     t.integer  "Flat_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "admin",           default: false
     t.index ["Flat_id"], name: "index_flatmates_on_Flat_id"
     t.index ["email"], name: "index_flatmates_on_email", unique: true
   end
