@@ -8,10 +8,10 @@
     <li>      
       <td><%= link_to flatmate.firstname, flatmate %></td>
       |
-      <td><%= link_to 'Show', flatmate %></td>
-       <% if logged_in? %>
-	<td><%= link_to 'Edit', edit_flatmate_path(flatmate) %></td>
-	<td><%= link_to 'Destroy', flatmate, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+      <td><%= link_to 'Show', flatmate, class: 'btn btn-info' %></td>
+       <% if current_flatmate.admin? %>
+	<td><%= link_to 'Edit', edit_flatmate_path(flatmate), class: 'btn btn-warning' %></td>
+	<td><%= link_to 'Destroy', flatmate, class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?'} %></td>
        <% end %>
     </li>
   <% end %>
