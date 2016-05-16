@@ -6,8 +6,16 @@
 <ul class="flatmates">
   <% @flatmates.each do |flatmate| %>
     <tr>      
+<<<<<<< HEAD
       <td><strong><%= flatmate.firstname %></strong></td>
       <td><strong><%= flatmate.lastname %></strong></td>
+=======
+      <td><%= link_to flatmate.firstname, flatmate %></td>
+<<<<<<< HEAD
+=======
+      |
+>>>>>>> origin/master
+>>>>>>> 10dc31008718014f124b86e36380fff754cf66fe
       <td><%= link_to 'Show', flatmate, class: 'btn btn-info' %></td>
        <% if current_flatmate.admin? %>
 	<td><%= link_to 'Edit', edit_flatmate_path(flatmate), class: 'btn btn-warning' %></td>

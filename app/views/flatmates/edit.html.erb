@@ -1,8 +1,15 @@
 <% provide(:title, "Edit user") %>
+<<<<<<< HEAD
 
 
 <% if !current_flatmate.admin? %>
 <h1>Update your profile</h1>
+=======
+<h1>Update profile</h1>
+
+
+<% if !current_flatmate.admin? %>
+>>>>>>> 10dc31008718014f124b86e36380fff754cf66fe
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@flatmate) do |f| %>
@@ -32,7 +39,11 @@
 </div>
 
 <% else %>
+<<<<<<< HEAD
 <h1>Update flatmate profile </h1>
+=======
+
+>>>>>>> 10dc31008718014f124b86e36380fff754cf66fe
 <div class = "row">
   <div class = "col-md-6 col-md-offset-3">
     <%= form_for(@flatmate) do |f| %>
@@ -44,11 +55,15 @@
 	<%= f.label :is_payed %>
 	<%= f.select :is_payed, options_for_select([['Yes', true], ['No', false]])%>
 
+<<<<<<< HEAD
 	<%= f.text_field :password, class: 'form-control' %>
 	
 
 	<%= f.submit "Save changes", class: "btn btn-success" %>
 
+=======
+	<%= f.submit "Save changes", class: "btn btn-success" %>
+>>>>>>> 10dc31008718014f124b86e36380fff754cf66fe
     <% end %>
   </div>
 </div>
