@@ -27,7 +27,7 @@ class FlatmatesController < ApplicationController
   end
 
   def create
-   if current_flatmate.admin?
+   
     @flatmate = Flatmate.new(flatmate_params)
     if @flatmate.save
 	if !logged_in?
@@ -42,7 +42,7 @@ class FlatmatesController < ApplicationController
     else
       render 'new'
     end
-   end
+   
   end
 
   def edit 

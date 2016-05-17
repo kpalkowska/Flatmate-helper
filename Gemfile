@@ -3,7 +3,12 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '>= 5.0.0.rc1', '< 5.1'
-gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master'
+
+
+#translate
+#gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master'
+gem "polish", ">= 0.1.6"
+
 
 gem 'bcrypt', '>= 3.1.7'
 gem 'bootstrap-sass', '>=3.2.0.0'

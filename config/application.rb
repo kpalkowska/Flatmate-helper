@@ -13,7 +13,7 @@ module FlatmateHelper
     # -- all .rb files in that directory are automatically loaded.
 
     # to translate
-    config.active_record.raise_in_transactional_callbacks = true
+    config.i18n.default_locale = :pl
 
   end
 end
