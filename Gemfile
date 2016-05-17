@@ -28,7 +28,8 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5.x'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
-# gem 'geocoder', '~> 1.3', '>= 1.3.4'
+
+gem 'geocoder'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
