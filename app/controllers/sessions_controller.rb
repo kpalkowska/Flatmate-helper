@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
         redirect_to flatmate
       end
     else
-      flash.now[:danger] = 'Invalid email/password combination'
+      flash.now[:danger] = 'Błędny email lub hasło'
       render 'new'
     end
   end

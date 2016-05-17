@@ -11,7 +11,7 @@ class FlatsController < ApplicationController
   def create
     @flat = Flat.new(flat_params)
     if @flat.save
-     flash[:success] = "Flat created successfully"
+     flash[:success] = "Utworzono mieszkanie"
      current_flatmate.update_attribute(:Flat_id, @flat.id)
      current_flatmate.update_attribute(:admin, true)
      redirect_to @flat

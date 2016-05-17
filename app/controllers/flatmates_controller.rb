@@ -14,7 +14,7 @@ class FlatmatesController < ApplicationController
 
   def destroy
     Flatmate.find(params[:id]).destroy
-    flash[:success] = "Flatmate deleted"
+    flash[:success] = "Mieszkaniec usunięty"
     redirect_to flatmates_url
   end
 
@@ -27,12 +27,12 @@ class FlatmatesController < ApplicationController
   end
 
   def create
-   if current_flatmate.admin?
+   
     @flatmate = Flatmate.new(flatmate_params)
     if @flatmate.save
 	if !logged_in?
      	   log_in @flatmate
-           flash[:success] = "Welcome to the Flatmate Helper!"      
+           flash[:success] = "Witamy w aplikacji Flatmate Helper!"      
            redirect_to new_flat_url
 	else
 	   
@@ -42,7 +42,7 @@ class FlatmatesController < ApplicationController
     else
       render 'new'
     end
-   end
+   
   end
 
   def edit 
@@ -52,7 +52,7 @@ class FlatmatesController < ApplicationController
   def update
       @flatmate = Flatmate.find(params[:id])
       if @flatmate.update_attributes(flatmate_params)
-	flash[:success] = "Profile update"
+	flash[:success] = "Zaktualizowano profil"
         redirect_to @flatmate      
       else
 	render 'edit'
@@ -63,7 +63,7 @@ class FlatmatesController < ApplicationController
   def logged_in_flatmate
      unless logged_in?
 	#store_location
-	flash[:danger] = "Please log in."
+	flash[:danger] = "Proszę się zalogować"
 	redirect_to login_url
       end
   end

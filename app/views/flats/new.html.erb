@@ -1,5 +1,5 @@
-<% provide(:title, 'New flat') %>
-<h1>New flat</h1>
+<% provide(:title, 'Nowe mieszkanie') %>
+<h1>Nowe mieszkanie</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -11,7 +11,9 @@
       <%= f.label :total_charges %>
       <%= f.text_field :total_charges, class: 'form-control' %>
 
-      <%= f.submit "Create flat", class: "btn btn-primary" %>
+      <%= f.submit "Stwórz mieszkanie", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
+
+<%= link_to 'Wróć', flats_path %>
