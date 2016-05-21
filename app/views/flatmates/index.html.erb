@@ -1,5 +1,5 @@
-<% provide(:title, 'Wszyscy mieszkaĹ„cy') %>
-<h1>Wszyscy mieszkańy</h1>
+<% provide(:title, 'Wszyscy lokatorzy') %>
+<h1>Wszyscy lokatorzy</h1>
 
 <table>
 <tbody>
@@ -12,7 +12,7 @@
       <td><%= link_to 'Zobacz', flatmate, class: 'btn btn-info' %></td>
        <% if current_flatmate.admin? %>
 		<td><%= link_to 'Edytuj', edit_flatmate_path(flatmate), class: 'btn btn-warning' %></td>
-		<td><%= link_to 'Usuń', flatmate, class: 'btn btn-danger', method: :delete, data: {confirm: 'Czy na pewno chcesz usunąć?'} %></td>
+		<td><%= link_to 'Usuń', flatmate, class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?'} %></td>
        <% end %>
     </tr>
   <% end %>
@@ -20,6 +20,4 @@
 </tbody>
 </table>
 <br/>
-<% if current_flatmate.admin? %>
-<%= link_to 'Nowy mieszkaniec', new_flatmate_path %>
-<% end %>
+<%= link_to 'Nowy lokator', new_flatmate_path %>

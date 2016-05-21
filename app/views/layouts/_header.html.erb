@@ -1,19 +1,24 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+﻿<header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <%= link_to "FLATMATE HELPER", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home",   root_path %></li>
+        <li><%= link_to "Strona główna",   root_path %></li>
         <li><%= link_to "O aplikacji",  page_path('about') %></li>
+
         <% if logged_in? %>
 	<li class = "dropdown">
 	 <a hfer="#" class="dropdown-toggle" data-toggle="dropdown">
-	  	Mieszkańcy <b class ="caret"></b>
+	  	Mieszkanie <b class ="caret"></b>
 	  </a>
           <ul class="dropdown-menu">
-		<li><%= link_to "Wszyscy", flatmates_path %></li>
+                <% if current_flatmate.Flat_id.nil? %>
+                  <li><%= link_to "Dodaj mieszkanie", new_flat_path %></li>
+                <% else %>
+		  <li><%= link_to "Lokatorzy", flatmates_path %></li>
+		<% end %>
 	        <% if current_flatmate.admin? %>
-		  <li><%= link_to "Dodaj nowego", new_flatmate_path %></li>
+		  <li><%= link_to "Dodaj lokatora", new_flatmate_path %></li>
 	      	<% end %>
 	  </ul>
 	</li>
