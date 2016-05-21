@@ -4,7 +4,7 @@ class MapsController < ApplicationController
   # GET /maps
   # GET /maps.json
   def index
-    @maps = Map.all
+    @flat = Flat.find_by(id: current_flatmate.Flat_id)
   end
 
   # GET /maps/1
