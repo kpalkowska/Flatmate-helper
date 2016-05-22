@@ -1,24 +1,33 @@
-# README
+### Projekt zespołowy Flatmate-helper
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1. Nazwa zespołu: DAMKA
 
-Things you may want to cover:
+2. Opis projektu
 
-* Ruby version
+Aplikacja przeznaczona dla współlokatorów, ułatwiająca zarządzanie mieszkaniem, dzielenie się obowiązkami, wymianę informacji o opłatach.
 
-* System dependencies
+3. Skład zespołu oraz wykonane zadania:
+  
+  - Dariusz Buszman
+    
 
-* Configuration
+  - Klaudia Pałkowska
+  
 
-* Database creation
+  - Aneta Stypa
+    - stowrzenie operacji dodawania, edytowania, usuwania użytkownika oraz widoki do tych operacji
+    - przypisywanie lokatora do mieszkania
+    - rozróżnienie zadań administratora i nowego użytkownika
+    - dodanie gemu polish - tłumaczy automatycznie domyślne komunikaty błędów i walidacji na język polski
 
-* Database initialization
 
-* How to run the test suite
+  - Marta Walczak
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+4. Informacje
+
+
+|Wersja Ruby|Wersja Rails|Baza danych|
+|---|---|---|
+|2.3.0p0|5.0.0.beta3|    |
