@@ -11,42 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160522120054) do
+ActiveRecord::Schema.define(version: 20160522151401) do
 
-  create_table "Comments", force: :cascade do |t|
+  create_table "comments", force: :cascade do |t|
     t.string   "category"
     t.integer  "Flatmate_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["Flatmate_id"], name: "index_Comments_on_Flatmate_id"
+    t.index ["Flatmate_id"], name: "index_comments_on_Flatmate_id"
   end
 
-  create_table "Duties", force: :cascade do |t|
+  create_table "duties", force: :cascade do |t|
     t.string   "description"
     t.string   "day"
     t.integer  "Flatmate_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["Flatmate_id"], name: "index_Duties_on_Flatmate_id"
+    t.index ["Flatmate_id"], name: "index_duties_on_Flatmate_id"
   end
 
-  create_table "Flatmates", force: :cascade do |t|
-    t.string   "firstname"
-    t.string   "lastname"
-    t.string   "phone"
-    t.string   "email"
-    t.string   "password_digest"
-    t.decimal  "charges"
-    t.boolean  "is_payed"
-    t.boolean  "admin",           default: false
-    t.integer  "Flat_id"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.index ["Flat_id"], name: "index_Flatmates_on_Flat_id"
-    t.index ["email"], name: "index_flatmates_on_email", unique: true
+  create_table "flatmates", force: :cascade do |t|
   end
 
-  create_table "Flats", force: :cascade do |t|
+  create_table "flats", force: :cascade do |t|
     t.decimal  "total_charges"
     t.string   "address"
     t.float    "latitude"
