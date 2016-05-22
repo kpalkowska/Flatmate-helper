@@ -6,27 +6,35 @@
 
 <h1>Mapa</h1>
 
-<div style='width: 100%;'>
-  <div id="map" style='width: 80%; height: 400px; margin:0 auto;'></div>
-</div>
+<% if @flat != nil %>
 
-<script type="text/javascript">
-handler = Gmaps.build('Google');
-handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-  markers = handler.addMarkers([
-    {
-      "lat": <%= @flat.latitude %>,
-      "lng": <%= @flat.longitude %>,
-      "picture": {
-        "url": "http://www2.psd100.com/icon/2013/08/2701/Down-arrow-icon-symbols-0827115355.png",
-        "width":  32,
-        "height": 32
-      },
-      "infowindow": "Twoje mieszkanie"
-    }
-  ]);
-  handler.bounds.extendWith(markers);
-  handler.fitMapToBounds();
-  handler.getMap().setZoom(15);
-});
-</script
+  <div style='width: 100%;'>
+    <div id="map" style='width: 80%; height: 400px; margin:0 auto;'></div>
+  </div>
+
+  <script type="text/javascript">
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers([
+      {
+        "lat": <%= @flat.latitude %>,
+        "lng": <%= @flat.longitude %>,
+        "picture": {
+          "url": "http://www2.psd100.com/icon/2013/08/2701/Down-arrow-icon-symbols-0827115355.png",
+          "width":  32,
+          "height": 32
+        },
+        "infowindow": "Twoje mieszkanie"
+      }
+    ]);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    handler.getMap().setZoom(15);
+  });
+  </script>
+
+<% end %>
+
+<% if @flat == nil %>
+    <h1>Dodaj najpierw mieszkanie</h1>
+<% end %>
