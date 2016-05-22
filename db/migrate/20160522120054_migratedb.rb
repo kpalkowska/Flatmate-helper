@@ -2,7 +2,7 @@ class Migratedb < ActiveRecord::Migration[5.0]
 
   def change
 
-    create_table "Flats", force: :cascade do |t|
+    create_table "flats", force: :cascade do |t|
     t.decimal  "total_charges"
     t.string   "address"
     t.float    "latitude"
@@ -11,7 +11,7 @@ class Migratedb < ActiveRecord::Migration[5.0]
     t.timestamps
     end
 
-    create_table "Flatmates", force: :cascade do |t|
+    create_table "flatmates", force: :cascade do |t|
     t.string   "firstname"
     t.string   "lastname"
     t.string   "phone"
@@ -26,14 +26,14 @@ class Migratedb < ActiveRecord::Migration[5.0]
     t.timestamps
     end
 
-    create_table "Comments", force: :cascade do |t|
+    create_table "comments", force: :cascade do |t|
     t.string   "category"
     t.references :Flatmate, foreign_key: true
 
     t.timestamps
     end
 
-    create_table "Duties", force: :cascade do |t|
+    create_table "duties", force: :cascade do |t|
     t.string   "description"
     t.string   "day"
     t.references :Flatmate, foreign_key: true
