@@ -27,25 +27,25 @@ class FlatmatesController < ApplicationController
   end
 
   def create
-   
+
     @flatmate = Flatmate.new(flatmate_params)
     if @flatmate.save
 	if !logged_in?
      	   log_in @flatmate
-           flash[:success] = "Witamy w aplikacji Flatmate Helper!"      
+           flash[:success] = "Witamy w aplikacji Flatmate Helper!"
            redirect_to new_flat_url
 	else
-	   
+
 	   @flatmate.update_attribute(:Flat_id, current_flatmate.Flat_id)
 	   redirect_to @flatmate
 	end
     else
       render 'new'
     end
-   
+
   end
 
-  def edit 
+  def edit
  	@flatmate = Flatmate.find(params[:id])
   end
 
@@ -53,12 +53,12 @@ class FlatmatesController < ApplicationController
       @flatmate = Flatmate.find(params[:id])
       if @flatmate.update_attributes(flatmate_params)
 	flash[:success] = "Zaktualizowano profil"
-        redirect_to @flatmate      
+        redirect_to @flatmate
       else
 	render 'edit'
       end
   end
-        
+
 #Before filters
   def logged_in_flatmate
      unless logged_in?

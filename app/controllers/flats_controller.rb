@@ -26,5 +26,3 @@ class FlatsController < ApplicationController
       params.require(:flat).permit(:address, :total_charges)
     end
 end
-
-

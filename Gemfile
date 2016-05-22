@@ -27,7 +27,6 @@ gem 'turbolinks', '~> 5.x'
 gem 'jbuilder', '~> 2.0'
 
 gem 'high_voltage'
-
 gem 'geocoder'
 gem 'gmaps4rails'
 

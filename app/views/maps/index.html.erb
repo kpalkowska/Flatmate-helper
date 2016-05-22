@@ -6,13 +6,14 @@
 
 <h1>Mapa</h1>
 
+
 <% if @flat != nil %>
 
   <div style='width: 100%;'>
     <div id="map" style='width: 80%; height: 400px; margin:0 auto;'></div>
   </div>
-
   <script type="text/javascript">
+
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
     markers = handler.addMarkers([
