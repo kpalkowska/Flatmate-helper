@@ -11,18 +11,18 @@
 	 <a hfer="#" class="dropdown-toggle" data-toggle="dropdown">
 	  	Mieszkanie <b class ="caret"></b>
 	  </a>
-          <ul class="dropdown-menu">
-                <% if current_flatmate.Flat_id.nil? %>
-                  <li><a href="/maps" data-no-turbolink>Mapa</a></li>
-                <% else %>
-		  <li><%= link_to "Lokatorzy", flatmates_path %></li>
-		<% end %>
-	        <% if current_flatmate.admin? %>
-		  <li><%= link_to "Dodaj lokatora", new_flatmate_path %></li>
-	      	<% end %>
-	  </ul>
+      <ul class="dropdown-menu">
+          <% if current_flatmate.Flat_id.nil? %>
+            <li><%= link_to "Dodaj mieszkanie", new_flat_path %></li>
+          <% else %>
+            <li><%= link_to "Lokatorzy", flatmates_path %></li>
+          <% end %>
+          <% if current_flatmate.admin? %>
+            <li><%= link_to "Dodaj lokatora", new_flatmate_path %></li>
+          <% end %>
+      </ul>
 	</li>
-    <li><%= link_to "Mapa", maps_path, 'data-no-turbolink' => true %></li>
+    <li><a href="/maps" data-no-turbolink>Mapa</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               Konto <b class="caret"></b>
