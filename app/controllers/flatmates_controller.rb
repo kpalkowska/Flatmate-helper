@@ -2,14 +2,10 @@ class FlatmatesController < ApplicationController
 
    before_action :logged_in_flatmate, only: [:index, :edit, :update, :destroy]
    before_action :correct_flatmate, only: [:edit, :update]
-   before_action :admin_flatmate, only: :destroy
+   before_action :admin_flatmate, only: [:new, :destroy]
 
   def index
-    @flatmates = Flatmate.where(Flat_id: current_flatmate.Flat_id)
-
-    #@flatmates = Flatmate.all
-    #@flatmates = Flatmate.paginate(:page =>params[:page], :per_page =>5)
-
+    @flatmates = Flatmate.where(Flat_id: current_flatmate.Flat_id).order('LastName ASC')
   end
 
   def destroy

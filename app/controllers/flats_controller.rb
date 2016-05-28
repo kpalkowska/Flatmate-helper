@@ -5,7 +5,13 @@ class FlatsController < ApplicationController
   end
 
   def new
-    @flat = Flat.new
+    if current_flatmate.Flat_id.nil?
+      @flat = Flat.new
+    else
+      @flat = Flat.find(current_flatmate.Flat_id)
+      flash[:warning] = "Jesteś już zapisany do mieszkania"
+      redirect_to @flat
+    end
   end
 
   def create
@@ -18,6 +24,24 @@ class FlatsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def edit
+    @flat = Flat.find(params[:id])
+    if !current_flatmate.admin?
+      flash[:warning] = "Edycję mieszkania może przeprowadzić tylko administrator"
+      redirect_to @flat
+    end
+  end
+
+  def update
+    @flat = Flat.find(params[:id])
+    if @flat.update_attributes(flat_params)
+	flash[:success] = "Zaktualizowano mieszkanie"
+        redirect_to @flat
+      else
+	render 'edit'
+      end
   end
 
   private

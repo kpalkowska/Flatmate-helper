@@ -1,0 +1,19 @@
+<% provide(:title, "Edycja mieszkania") %>
+
+<h1>Edycja mieszkania</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@flat) do |f| %>
+      <%= render 'shared/error_messages_flat' %>
+
+      <%= f.label :address %>
+      <%= f.text_field :address, class: 'form-control' %>
+
+      <%= f.label :total_charges %>
+      <%= f.text_field :total_charges, class: 'form-control' %>
+
+      <%= f.submit "Zapisz zmiany", class: "btn btn-primary" %>
+    <% end %>    
+  </div>
+</div>
+

@@ -1,7 +1,7 @@
 <% if @flatmate.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-danger">
-      The form contains <%= pluralize(@flatmate.errors.count, "error") %>.
+      Formularz zawiera <%= pluralize(@flatmate.errors.count, "błąd", "błędy") %>.
     </div>
     <ul>
     <% @flatmate.errors.full_messages.each do |msg| %>

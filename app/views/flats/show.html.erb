@@ -1,5 +1,7 @@
 <% provide(:title, "Mieszkanie") %>
 
+<h1>Twoje mieszkanie</h1>
+
 <p>
   <strong>Adres:</strong>
   <%= @flat.address %>
@@ -10,5 +12,7 @@
   <%= @flat.total_charges %>
 </p>
 
-
-<%= link_to 'Wróć', flats_path %>
+<% if current_flatmate.admin? %>
+  <%= link_to 'Edytuj', edit_flat_path(@flat.id) %> | 
+<% end %>
+<%= link_to 'Wróć', root_path %>

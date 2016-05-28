@@ -10,14 +10,17 @@
       <td><strong><%= flatmate.firstname %></strong></td>
       <td><strong><%= flatmate.lastname %></strong></td>
       <td><%= link_to 'Zobacz', flatmate, class: 'btn btn-info' %></td>
-       <% if current_flatmate.admin? %>
-		<td><%= link_to 'Edytuj', edit_flatmate_path(flatmate), class: 'btn btn-warning' %></td>
-		<td><%= link_to 'Usuń', flatmate, class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?'} %></td>
-       <% end %>
+      <% if current_flatmate.admin? || flatmate == current_flatmate %>
+	<td><%= link_to 'Edytuj', edit_flatmate_path(flatmate), class: 'btn btn-warning' %></td>
+	<td><%= link_to 'Usuń', flatmate, class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?'} %></td>
+      <% end %>
     </tr>
   <% end %>
 </ul>
 </tbody>
 </table>
 <br/>
-<%= link_to 'Nowy lokator', new_flatmate_path %>
+
+<% if current_flatmate.admin? %>
+  <%= link_to 'Nowy lokator', new_flatmate_path %>
+<% end %>
