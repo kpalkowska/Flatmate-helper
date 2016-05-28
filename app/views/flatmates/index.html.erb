@@ -1,14 +1,15 @@
 <% provide(:title, 'Wszyscy lokatorzy') %>
 <h1>Wszyscy lokatorzy</h1>
 
+<% suma=0 %>
+
 <table>
 <tbody>
 <ul class="flatmates">
   <% @flatmates.each do |flatmate| %>
     <tr>
-
-      <td><strong><%= flatmate.firstname %></strong></td>
-      <td><strong><%= flatmate.lastname %></strong></td>
+      <td><strong><%= flatmate.firstname %> <%= flatmate.lastname %></strong></td>
+      <td><%= flatmate.charges %></td> <% suma += flatmate.charges %>
       <td><%= link_to 'Zobacz', flatmate, class: 'btn btn-info' %></td>
       <% if current_flatmate.admin? || flatmate == current_flatmate %>
 	<td><%= link_to 'Edytuj', edit_flatmate_path(flatmate), class: 'btn btn-warning' %></td>
@@ -16,6 +17,11 @@
       <% end %>
     </tr>
   <% end %>
+    <tr>
+      <td>Suma opłat:</td>
+      <td><%= suma %>/<%= Flat.find(@flatmates.first.Flat_id).total_charges %></td>
+      <td/><td/><td/>
+    <tr>
 </ul>
 </tbody>
 </table>
