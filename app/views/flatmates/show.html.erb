@@ -19,12 +19,21 @@
      </p>
      <p>
 	<strong>Czy zapłacone: </strong>
-	<%= @flatmate.is_payed %>
+	<% if @flatmate.is_payed %>
+	  Tak
+        <% else %>
+	  Nie
+	<% end %>
      </p>
 
     </section>
   </aside>
 </div>
 
-<%= link_to 'Edytuj', edit_flatmate_path(@flatmate) %> |
+<% if @flatmate == current_flatmate %>
+  <%= link_to 'Zadania', duties_path %> |
+<% end %>
+<% if @flatmate == current_flatmate || current_flatmate.admin? %>
+  <%= link_to 'Edytuj', edit_flatmate_path(@flatmate) %> |
+<% end %>
 <%= link_to 'Wróć', flatmates_path %>

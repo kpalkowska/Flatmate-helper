@@ -1,8 +1,9 @@
 class CommentsController < ApplicationController
 
   def index
-    flatmates = Flatmate.where(Flat_id: current_flatmate.Flat_id)
-    @comments = Comment.select{ |c| flatmates.include?(Flatmate.find(c.Flatmate_id))}
+    flatmates = Flatmate.where(Flat_id: current_flatmate.Flat_id).select{ |f| f.id }
+    @duties = Duty.where(Flatmate_id: flatmates)
+    @comments = Comment.where(Flatmate_id: flatmates).order('updated_at DESC')
   end
 
   def show

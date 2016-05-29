@@ -2,7 +2,7 @@ class FlatmatesController < ApplicationController
 
    before_action :logged_in_flatmate, only: [:index, :edit, :update, :destroy]
    before_action :correct_flatmate, only: [:edit, :update]
-   before_action :admin_flatmate, only: [:new, :destroy]
+   before_action :admin_flatmate, only: :destroy
 
   def home
     if logged_in?
@@ -27,12 +27,17 @@ class FlatmatesController < ApplicationController
   end
 
   def new
-    @flatmate = Flatmate.new
+    if current_flatmate == nil || current_flatmate.admin?
+      @flatmate = Flatmate.new
+    else
+      flash[:warning] = "Nie możesz dodawać nowych lokatorów"
+      redirect_to root_url
+    end
   end
 
   def create
-
     @flatmate = Flatmate.new(flatmate_params)
+    @flatmate.update_attribute(:charges, 0)
     if @flatmate.save
 	if !logged_in?
      	   log_in @flatmate
