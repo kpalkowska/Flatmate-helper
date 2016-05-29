@@ -11,18 +11,14 @@
 
   Aplikacja Flatmate Helper jest przeznaczona dla współlokatorów. Jej głównym celem jest ułatwienie im zarządzanie mieszkaniem, w tym dzielenie się obowiązkami oraz wymianę informacji o opłatach czy innych sprawunkach.
 
-  Użytkownik, po rejestracji do aplikacji, jest proszony o zapisanie mieszkania - podanie jego adresu oraz opłat. Zostaje on administratorem danego mieszkania. Jako jedyny może on edytować informacje o mieszkaniu<sup>(1)</sup> oraz dodawać nowych lokatorów do mieszkania. W jego uprawnieniach leży również przydzielanie opłat, zaznaczanie, kto zapłacił swoją część oraz usuwanie lokatorów.
+  Użytkownik, po rejestracji do aplikacji, jest proszony o zapisanie mieszkania - podanie jego adresu oraz opłat. Zostaje on administratorem danego mieszkania. Jako jedyny może on edytować informacje o mieszkaniu oraz dodawać nowych lokatorów do mieszkania. W jego uprawnieniach leży również przydzielanie opłat, zaznaczanie, kto zapłacił swoją część oraz usuwanie lokatorów.
 
-  Każdy lokator mieszkania może zmieniać swoje dane oraz usunąć swoje konto.
+  Każdy lokator mieszkania może zmieniać swoje dane oraz usunąć swoje konto. Może on również zarządzać swoimi zadaniami.
 
-  Na stronie głównej mieszkania<sup>(1)</sup> lokatorzy mają możliwość ustalenia swoich obowiązków na tygodniowym grafiku oraz napisania notatek widocznych dla pozostałych współlokatorów.
+  Na stronie głównej aplikacji jest wyświetlona lista obowiązków lokatorów na tygodniowym grafiku oraz notatki napisane przez lokatorów danego mieszkania.
   
-  Aplikacja posiada również stronę z mapą, na której jest zaznaczona lokalizacja mieszkania zalogowanego użytkownika<sup>2</sup>. 
+  Aplikacja posiada również stronę z mapą, na której jest zaznaczona lokalizacja mieszkania zalogowanego użytkownika. 
 
-  <sup>(1)</sup> Jeszcze nie wprowadzone do aplikacji
-  
-  <sup>(2)</sup> Po każdym wejściu na stronę, należy ją odświeżyć, by mapa wyświetliła się poprawnie
-  
 1. Podział pracy
 
   - Dariusz Buszman
@@ -43,13 +39,12 @@
     - rozróżnienie zadań administratora i nowego użytkownika
     - dodanie gemu polish - tłumaczy automatycznie domyślne komunikaty błędów i walidacji na język polski
 
-  - Marta Walczak<sup>(3)</sup>
+  - Marta Walczak
     - stworzenie strony głównej mieszkania z grafikiem obowiązków oraz notatkami
     - dodanie edycji mieszkania
     - wprowadzenie obliczania opłat
     - testowanie manualne działania aplikacji
 
-  <sup>(3)</sup> Wykona swoją część pracy na 29.05
 
 1. Informacje 
 
