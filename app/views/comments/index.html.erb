@@ -1,0 +1,26 @@
+<% provide(:title, 'Notatki') %>
+<h1>Notatki</h1>
+
+<table>
+<tbody>
+<% @comments.each do |comment| %>
+  <tr>
+    <td>
+      <strong><%= Flatmate.find(comment.Flatmate_id).firstname %></strong>
+      <br/>
+      <%= comment.category %>:
+      <%= comment.body %>
+    </td>
+    <td>
+      <% if current_flatmate.admin? || comment.Flatmate_id == current_flatmate.id %>
+        <%= link_to 'Edytuj', edit_comment_path(comment), class: 'btn btn-warning' %>
+        <%= link_to 'Usuń', comment, class: 'btn btn-danger', method: :delete, data: {confirm: 'Jesteś pewien?'} %>
+      <% end %>
+    </td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+<br/>
+<%= link_to 'Nowa notatka', new_comment_path %>
