@@ -17,7 +17,17 @@
 
   Na stronie głównej aplikacji jest wyświetlona lista obowiązków lokatorów na tygodniowym grafiku oraz notatki napisane przez lokatorów danego mieszkania.
   
-  Aplikacja posiada również stronę z mapą, na której jest zaznaczona lokalizacja mieszkania zalogowanego użytkownika. 
+  Aplikacja posiada również stronę z mapą, na której jest zaznaczona lokalizacja mieszkania zalogowanego użytkownika.
+  
+  Aplikacja znajduje się pod tym linkiem: [https://flatmate-helper-app.herokuapp.com](https://flatmate-helper-app.herokuapp.com)
+  
+  Dane do logowania do przykładowego mieszkania:
+  - Admin
+    - login dariusz@example.com
+    - hasło zaq12wsx
+  - Inny współlokator
+    - login klaudia@example.com
+    - hasło zaq12wsx
 
 1. Podział pracy
 
