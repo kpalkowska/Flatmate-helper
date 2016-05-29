@@ -9,7 +9,7 @@ class FlatmatesController < ApplicationController
       redirect_to(comments_url)
     else
       redirect_to(main_url)
-    end 
+    end
   end
 
   def index
@@ -37,9 +37,10 @@ class FlatmatesController < ApplicationController
 
   def create
     @flatmate = Flatmate.new(flatmate_params)
-    @flatmate.update_attribute(:charges, 0)
+
     if @flatmate.save
-	if !logged_in?
+          @flatmate.update_attribute(:charges, 0)
+	         if !logged_in?
      	   log_in @flatmate
            flash[:success] = "Witamy w aplikacji Flatmate Helper!"
            redirect_to new_flat_url

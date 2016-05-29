@@ -13,25 +13,30 @@
     <div id="map" style='width: 80%; height: 400px; margin:0 auto;'></div>
   </div>
   <script type="text/javascript">
-
-  handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-    markers = handler.addMarkers([
-      {
-        "lat": <%= @flat.latitude %>,
-        "lng": <%= @flat.longitude %>,
-        "picture": {
-          "url": "http://www2.psd100.com/icon/2013/08/2701/Down-arrow-icon-symbols-0827115355.png",
-          "width":  32,
-          "height": 32
-        },
-        "infowindow": "Twoje mieszkanie"
+  if(!window.location.hash) {
+          window.location = window.location + '#loaded';
+          window.location.reload();
+      }else{
+        handler = Gmaps.build('Google');
+        handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+          markers = handler.addMarkers([
+            {
+              "lat": <%= @flat.latitude %>,
+              "lng": <%= @flat.longitude %>,
+              "picture": {
+                "url": "http://webartesanal.com/lima-soul-demo/templates/Blue/HTML/img/icon-set/32x32/icon-arrow-down.png",
+                "width":  32,
+                "height": 32
+              },
+              "infowindow": "Twoje mieszkanie"
+            }
+          ]);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+          handler.getMap().setZoom(15);
+        });
       }
-    ]);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-    handler.getMap().setZoom(15);
-  });
+
   </script>
 
 <% end %>
