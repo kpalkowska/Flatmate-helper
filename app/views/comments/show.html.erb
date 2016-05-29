@@ -9,10 +9,10 @@
 
 <p>
   <strong>Treść:</strong>
-  <%= @comment.body %>
+  <%= @comment.comment_content %>
 </p>
 
 <% if current_flatmate.id == @comment.Flatmate_id %>
-  <%= link_to 'Edytuj', edit_comment_path(@comment.id) %> | 
+  <%= link_to 'Edytuj', edit_comment_path(@comment.id) %> |
 <% end %>
 <%= link_to 'Wróć', root_path %>

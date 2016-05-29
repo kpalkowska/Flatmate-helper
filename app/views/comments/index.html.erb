@@ -54,7 +54,7 @@
       <strong><%= Flatmate.find(comment.Flatmate_id).firstname %> <%= Flatmate.find(comment.Flatmate_id).lastname %></strong>
       <br/>
       <%= comment.category %>:
-      <%= comment.body %>
+      <%= comment.comment_content %>
     </td>
     <td>
       <% if current_flatmate.admin? || comment.Flatmate_id == current_flatmate.id %>
