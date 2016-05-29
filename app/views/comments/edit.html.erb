@@ -1,0 +1,18 @@
+<% provide(:title, "Edytuj notatkę") %>
+
+<h1>Edytuj notatkę</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@comment) do |c| %>
+
+      <%= c.label :Kategoria %>
+      <%= c.text_field :category, class: 'form-control' %>
+
+      <%= c.label :Treść %>
+      <%= c.text_field :body, class: 'form-control' %>
+
+      <%= c.submit "Zapisz zmiany", class: "btn btn-primary" %>
+    <% end %>    
+  </div>
+</div>
+

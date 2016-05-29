@@ -1,0 +1,72 @@
+<% provide(:title, 'Flatmate Helper') %>
+<div class="container">
+<h1><small>Grafik</small></h1>
+
+<div class="table-responsive">
+<table class="table">
+<thead>
+<tr>
+  <th>Poniedziałek</th>
+  <th>Wtorek</th>
+  <th>Środa</th>
+  <th>Czwartek</th>
+  <th>Piątek</th>
+  <th>Sobota</th>
+  <th>Niedziela</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <% ['Poniedziałek','Wtorek','Środa','Czwartek','Piątek','Sobota','Niedziela'].each do |weekday| %>
+    <td>
+      <table>
+      <tbody>
+        <% @duties.select{ |d| d.day == weekday}.each do |duty| %>
+          <tr>
+            <td>
+              <strong><%= Flatmate.find(duty.Flatmate_id).firstname %> <%= Flatmate.find(duty.Flatmate_id).lastname %></strong>
+            </td>
+          </tr>
+          <tr>
+	     <td>
+              <%= duty.description %>
+             </td>
+           </tr>
+         <% end %>
+       </tbody>
+       </table>
+    </td>
+  <% end %>
+</tr>
+</tbody>
+</table>
+</div>
+
+<%= link_to 'Nowe zadanie', new_duty_path %>
+
+<h1><small>Notatki</small></h1>
+
+<table>
+<tbody>
+<% @comments.each do |comment| %>
+  <tr>
+    <td>
+      <strong><%= Flatmate.find(comment.Flatmate_id).firstname %> <%= Flatmate.find(comment.Flatmate_id).lastname %></strong>
+      <br/>
+      <%= comment.category %>:
+      <%= comment.body %>
+    </td>
+    <td>
+      <% if current_flatmate.admin? || comment.Flatmate_id == current_flatmate.id %>
+        <%= link_to 'Edytuj', edit_comment_path(comment), class: 'btn btn-warning' %>
+        <%= link_to 'Usuń', comment, class: 'btn btn-danger', method: :delete, data: {confirm: 'Jesteś pewien?'} %>
+      <% end %>
+    </td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+<br/>
+<%= link_to 'Nowa notatka', new_comment_path %>
+</div>

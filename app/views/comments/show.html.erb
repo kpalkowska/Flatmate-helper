@@ -1,0 +1,18 @@
+<% provide(:title, "Notatka") %>
+
+<h1>Twoja notatka</h1>
+
+<p>
+  <strong>Kategoria:</strong>
+  <%= @comment.category %>
+</p>
+
+<p>
+  <strong>Treść:</strong>
+  <%= @comment.body %>
+</p>
+
+<% if current_flatmate.id == @comment.Flatmate_id %>
+  <%= link_to 'Edytuj', edit_comment_path(@comment.id) %> | 
+<% end %>
+<%= link_to 'Wróć', root_path %>

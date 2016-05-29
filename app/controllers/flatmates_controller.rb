@@ -4,17 +4,21 @@ class FlatmatesController < ApplicationController
    before_action :correct_flatmate, only: [:edit, :update]
    before_action :admin_flatmate, only: :destroy
 
+  def home
+    if logged_in?
+      redirect_to(comments_url)
+    else
+      redirect_to(main_url)
+    end 
+  end
+
   def index
-    @flatmates = Flatmate.where(Flat_id: current_flatmate.Flat_id)
-
-    #@flatmates = Flatmate.all
-    #@flatmates = Flatmate.paginate(:page =>params[:page], :per_page =>5)
-
+    @flatmates = Flatmate.where(Flat_id: current_flatmate.Flat_id).order('LastName ASC')
   end
 
   def destroy
     Flatmate.find(params[:id]).destroy
-    flash[:success] = "Mieszkaniec usunięty"
+    flash[:success] = "Lokator usunięty"
     redirect_to flatmates_url
   end
 
@@ -23,19 +27,23 @@ class FlatmatesController < ApplicationController
   end
 
   def new
-    @flatmate = Flatmate.new
+    if current_flatmate == nil || current_flatmate.admin?
+      @flatmate = Flatmate.new
+    else
+      flash[:warning] = "Nie możesz dodawać nowych lokatorów"
+      redirect_to root_url
+    end
   end
 
   def create
-
     @flatmate = Flatmate.new(flatmate_params)
+    @flatmate.update_attribute(:charges, 0)
     if @flatmate.save
 	if !logged_in?
      	   log_in @flatmate
            flash[:success] = "Witamy w aplikacji Flatmate Helper!"
            redirect_to new_flat_url
 	else
-
 	   @flatmate.update_attribute(:Flat_id, current_flatmate.Flat_id)
 	   redirect_to @flatmate
 	end

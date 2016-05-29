@@ -1,0 +1,18 @@
+<% provide(:title, 'Nowe zadanie') %>
+<h1>Nowe zadanie</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@duty) do |d| %>
+      <%= d.label :Dzień %>
+      <%= d.select :day, options_for_select([['Poniedziałek'], ['Wtorek'], ['Środa'], ['Czwartek'], ['Piątek'], ['Sobota'], ['Niedziela']]), class: 'form-control' %>
+
+      <%= d.label :Opis %>
+      <%= d.text_field :description, class: 'form-control' %>
+
+      <%= d.submit "Stwórz zadanie", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to 'Wróć', root_path %>

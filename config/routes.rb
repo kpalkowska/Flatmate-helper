@@ -4,11 +4,14 @@ Rails.application.routes.draw do
   resources :maps
   get 'sessions/new'
 
-  root             'static_pages#home'
+  root              'flatmates#home'
+  get 'main'	=>	    'static_pages#home'
   get 'signup'   => 'flatmates#new'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   resources :flatmates
   resources :flats
+  resources :comments
+  resources :duties
 end

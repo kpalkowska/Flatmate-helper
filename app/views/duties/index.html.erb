@@ -1,0 +1,24 @@
+<% provide(:title, 'Zadania') %>
+<h1>Twoje zadania</h1>
+
+<table>
+<tbody>
+<% @duties.each do |duty| %>
+  <tr>
+    <td>
+      <%= duty.day %>:
+      <%= duty.description %>
+    </td>
+    <td>
+      <% if current_flatmate.admin? || duty.Flatmate_id == current_flatmate.id %>
+        <%= link_to 'Edytuj', edit_duty_path(duty), class: 'btn btn-warning' %>
+        <%= link_to 'Usuń', duty, class: 'btn btn-danger', method: :delete, data: {confirm: 'Jesteś pewien?'} %>
+      <% end %>
+    </td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+<br/>
+<%= link_to 'Nowe zadanie', new_duty_path %>

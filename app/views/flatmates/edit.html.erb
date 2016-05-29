@@ -1,42 +1,42 @@
-<% provide(:title, "Edytuj użytkownika") %>
+<% provide(:title, "Edytuj lokatora") %>
 
 <h1>Edytuj profil</h1>
 <div class = "row">
   <div class = "col-md-6 col-md-offset-3">
     <%= form_for(@flatmate) do |f| %>
-	<%= render 'shared/error_messages' %>
-        <% if @flatmate == current_flatmate %>
+      <%= render 'shared/error_messages' %>
+    
 
-	<%= f.label :imię %>
-        <%= f.text_field :firstname, class: 'form-control' %>
+      <%= f.label :imię %>
+      <%= f.text_field :firstname, class: 'form-control' %>
 
-        <%= f.label :nazwisko %>
-        <%= f.text_field :lastname, class: 'form-control' %>
+      <%= f.label :nazwisko %>
+      <%= f.text_field :lastname, class: 'form-control' %>
 
-        <%= f.label :telefon %>
-        <%= f.text_field :phone, class: 'form-control' %>
+      <%= f.label :telefon %>
+      <%= f.text_field :phone, class: 'form-control' %>
 
-        <%= f.label :email %>
-        <%= f.email_field :email, class: 'form-control' %>
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+        
+      <% if current_flatmate.admin? %>
+	<%= f.label :Opłaty %>
+	<%= f.text_field :charges, class: 'form-control' %>
 
-        <%= f.label :hasło %>
-        <%= f.password_field :password, class: 'form-control' %>
+	<%= f.label :is_payed, "Czy zapłacone" %>
+	<%= f.select :is_payed, options_for_select([['Tak', true], ['Nie', false]])%>
+      <% end %>
 
-        <%= f.label :password_confirmation, "Potwierdź hasło" %>
-        <%= f.password_field :password_confirmation, class: 'form-control' %>
-        <% end %>
+      <%= f.label :hasło %>
+      <%= f.password_field :password, class: 'form-control' %>
 
-	<% if current_flatmate.admin? %>
-	  <%= f.label :Opłaty %>
-	  <%= f.text_field :charges, class: 'form-control' %>
+      <%= f.label :password_confirmation, "Potwierdź hasło" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-	  <%= f.label :is_payed, "Czy zapłacone" %>
-	  <%= f.select :is_payed, options_for_select([['Tak', true], ['Nie', false]])%>
-
-        <% end %>
-        <%= f.submit "Zapisz zmiany", class: "btn btn-success" %>
+      <%= f.submit "Zapisz zmiany", class: "btn btn-success" %>
     <% end %>
-	<%= link_to 'Zobacz', @flatmate %> |
-	<%= link_to 'Wróć', flatmates_path %>
+
+    <%= link_to 'Zobacz', @flatmate %> |
+    <%= link_to 'Wróć', flatmates_path %>
   </div>
 </div>
