@@ -1,0 +1,18 @@
+<% provide(:title, "Zadanie") %>
+
+<h1>Twoje zadanie</h1>
+
+<p>
+  <strong>Dzień:</strong>
+  <%= @duty.day %>
+</p>
+
+<p>
+  <strong>Opis:</strong>
+  <%= @duty.description %>
+</p>
+
+<% if current_flatmate.admin? || current_flatmate.id == @duty.Flatmate_id %>
+  <%= link_to 'Edytuj', edit_duty_path(@duty.id) %> | 
+<% end %>
+<%= link_to 'Wróć', root_path %>

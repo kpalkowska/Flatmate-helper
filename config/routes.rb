@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :flatmates
   resources :flats
   resources :comments
+  resources :duties
 end
