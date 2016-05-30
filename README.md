@@ -19,6 +19,9 @@
   
   Aplikacja posiada również stronę z mapą, na której jest zaznaczona lokalizacja mieszkania zalogowanego użytkownika.
   
+  Początkowo, występowały problemy z poprawnym działaniem mapy. Spowodowane było to przez mechanizm Turbolinks, który w znacznym stopniu przyspiesza nawigację pomiędzy stronami w aplikacji, jednakże jednocześnie na skutek braku pełnego przeładowania odwiedzanej strony występują problemy z elementami oskryptowanymi w przy użyciu JavaScript - aby mapa działała należało po przejściu, przeładować ręcznie stronę w przeglądarce. Jest to znany problem - w Ruby on Rails w wersji 4.x, aby rozwiązać problem wystarczyło dodać gem jquery-turbolinks, jednak ta solucja nie sprawdza się w wesji Rails 5.
+  Najprostszym sposobem na ominięcie tego dokuczliwego problemu jest wykonanie przeładowania strony na nowo, zaraz po wejściu na stronę mapy, za co odpowiada niewielki fragment kodu w JavaScript.
+  
   Aplikacja znajduje się pod tym linkiem: [https://flatmate-helper-app.herokuapp.com](https://flatmate-helper-app.herokuapp.com)
   
   Dane do logowania do przykładowego mieszkania:
